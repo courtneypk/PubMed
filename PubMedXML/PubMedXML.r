@@ -63,8 +63,8 @@ extractJournal <- function(query.term = query) {
       pub.count," hits. For query named: ", query.term,"\n", sep="")
   # Create data frame with journal counts
   journal <- data.frame(count(journal))
-  # Calculcate percent
-  journal$percent <- journal$freq / pub.count
+  # Calculate percent, round to 2 decimal points
+  journal$percent <- round(journal$freq / pub.count * 100, digits = 2)
   # return data
   return(journal)
 }
